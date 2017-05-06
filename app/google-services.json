@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "735365894117",
+    "firebase_url": "https://pizzatrackingdemo.firebaseio.com",
+    "project_id": "pizzatrackingdemo",
+    "storage_bucket": "pizzatrackingdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735365894117:android:15fc902f9e0fa226",
+        "android_client_info": {
+          "package_name": "com.pizzaTracking.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735365894117-52paikj441pmeej4gmqoc0u4n7tfqgpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pizzaTracking.android",
+            "certificate_hash": "46ce576dee13c210c741701b8b66be5d178f205b"
+          }
+        },
+        {
+          "client_id": "735365894117-ili3k107lrvu4pqpisnp4hq1d7fr084n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWsueF_PvPz9twYnHOhflxJyGOTlUEYb8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735365894117-ili3k107lrvu4pqpisnp4hq1d7fr084n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
