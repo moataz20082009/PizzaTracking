@@ -24,8 +24,39 @@ public class FirebaseItemsList<T extends FirebaseDataItem> {
     protected T CreateInstance(Class type) throws IllegalAccessException, InstantiationException {
         return (T) type.newInstance();
     }
+    public void GetAll(final DatabaseReference database, final DataRetrieved listener){
+        database.child(RootNodeName).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<T> result = new ArrayList<T>();
+                for (DataSnapshot item: dataSnapshot.getChildren()){
+                    try {
+                        T entity = (T) CreateInstance(genericType);
+                        entity.FromDataSnapshot(item);
+                        result.add(entity);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(listener != null){
+                    try {
+                        listener.SetDataAndRun(result);
+                    }catch (Exception ex){
+                        Log.d("error",ex.getMessage());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
     public void SearchByKeyValue(final DatabaseReference database, final String key, final String value, final DataRetrieved listener){
-        database.orderByChild(key).equalTo(value).addListenerForSingleValueEvent(new ValueEventListener() {
+        database.child(RootNodeName).orderByChild(key).equalTo(value).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<T> result = new ArrayList<T>();

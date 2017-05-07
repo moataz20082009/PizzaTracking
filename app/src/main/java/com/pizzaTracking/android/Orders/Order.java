@@ -6,6 +6,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.pizzaTracking.android.Common.DataRetrieved;
 import com.pizzaTracking.android.Common.FirebaseDataItem;
+import com.pizzaTracking.android.Common.FirebaseRootNodes;
 import com.pizzaTracking.android.Restaurant.FoodItem;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Order extends FirebaseDataItem {
 
     @Override
     protected String GetRootNodeName() {
-        return "Orders";
+        return FirebaseRootNodes.ORDER_ROOT;
     }
 
     @Override

@@ -17,4 +17,5 @@
     <string name="FoodItemName">Name</string>
     <string name="Price">Price</string>
     <string name="add">Add</string>
+    <string name="SHARED_PREFERENCE_DB_NAME">SHARED_PREFERENCES</string>
 </resources>

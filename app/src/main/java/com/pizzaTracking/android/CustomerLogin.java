@@ -134,11 +134,16 @@ public class CustomerLogin extends AppCompatActivity{
             //updateUI(false);
         }
     }
+    private void SaveAndGoToItems(){
+        SharedPreferences.Editor preferences = getSharedPreferences(getString(R.string.SharedPreferenceDBName), MODE_PRIVATE).edit();
+
+    }
     private void firebaseAuthWithGoogle(final GoogleSignInAccount acct) {
         final String email = acct.getEmail();
         //final String token = acct.getIdToken();
         final String name = acct.getDisplayName();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -163,7 +168,13 @@ public class CustomerLogin extends AppCompatActivity{
                                     }
                                 }
                             });
-
+                            SharedPreferences.Editor preferences = getSharedPreferences(getString(R.string.SharedPreferenceDBName), MODE_PRIVATE).edit();
+                            preferences.putString("UserId", userId);
+                            preferences.putString("Email",email);
+                            preferences.putString("Name",name);
+                            preferences.commit();
+                            Intent orderIntent = new Intent(CustomerLogin.this, CustomerNewOrder.class);
+                            startActivity(orderIntent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(CustomerLogin.this, "Authentication failed.",

@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.pizzaTracking.android.Common.DataRetrieved;
 import com.pizzaTracking.android.Common.FirebaseDataItem;
+import com.pizzaTracking.android.Common.FirebaseRootNodes;
 import com.pizzaTracking.android.Customer.CustomerInfo;
 
 import java.util.HashMap;
@@ -25,7 +26,7 @@ public class FoodItem extends FirebaseDataItem {
 
     @Override
     protected String GetRootNodeName() {
-        return "menu";
+        return FirebaseRootNodes.FOOOD_ITEM_ROOT;
     }
 
     @Override

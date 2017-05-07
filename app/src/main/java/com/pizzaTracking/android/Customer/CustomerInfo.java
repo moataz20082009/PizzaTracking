@@ -9,6 +9,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.pizzaTracking.android.Common.DataRetrieved;
 import com.pizzaTracking.android.Common.FirebaseDataItem;
+import com.pizzaTracking.android.Common.FirebaseRootNodes;
 import com.pizzaTracking.android.Common.Interests;
 
 
@@ -35,7 +36,7 @@ public class CustomerInfo extends FirebaseDataItem {
 
     @Override
     protected String GetRootNodeName() {
-        return "users";
+        return FirebaseRootNodes.CUSTOMER_ROOT;
     }
 
     @Override
